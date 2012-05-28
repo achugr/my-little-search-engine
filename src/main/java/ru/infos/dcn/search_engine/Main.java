@@ -14,9 +14,9 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-//        Crawler crawler = new Crawler("http://pipeinpipe.info/sport/league", 1);
-//        crawler.crawl();
-        RevInd revInd = new RevInd(Consts.SOURCE_PAGES_DIR);
+        Crawler crawler = new Crawler("http://pipeinpipe.info/forum", 1);
+        crawler.crawl();
+        RevInd revInd = new RevInd(Settings.SOURCE_PAGES_DIR);
         FinderWrapper finderWrapper = new FinderWrapper(revInd);
         List<String> relevantPages = finderWrapper.search("труба");
         for(String str : relevantPages){

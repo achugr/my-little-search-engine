@@ -38,7 +38,7 @@ public class FinderWrapper {
             UnmarshallerWrapper unmarshallerWrapper = new UnmarshallerWrapper(Page.class);
             Page page;
             for (String filePath : filePaths) {
-                page = unmarshallerWrapper.unmarshall(Consts.SOURCE_PAGES_DIR + File.separator + filePath);
+                page = unmarshallerWrapper.unmarshall(Settings.SOURCE_PAGES_DIR + File.separator + filePath);
                 relevantPages.add(page.getUrl());
             }
         } catch (JAXBException e) {

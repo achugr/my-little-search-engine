@@ -26,7 +26,7 @@ public class Crawler {
         this.startUrl = startUrl;
         this.depth = depth;
 //        provide start page
-        this.pageProvider = new PageProvider(startUrl);
+        this.pageProvider = new PageProvider();
 //        provide robots.txt from host of url
         this.robotsTxt = new RobotsTxt(startUrl);
         this.robotsTxt.parse();
@@ -39,8 +39,7 @@ public class Crawler {
      */
     public void recursiveCrawl(String url, int currentDepth) {
 //        provide current page
-        pageProvider = new PageProvider(url);
-        pageProvider.provide();
+        pageProvider.provide(url);
 
         if (currentDepth >= depth) {
             return;

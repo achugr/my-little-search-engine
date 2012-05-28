@@ -3,6 +3,7 @@ package ru.infos.dcn.search_engine;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import ru.infos.dcn.search_engine.beans.Page;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,24 +18,38 @@ import java.util.Set;
  * skype: achugr
  */
 public class Parser {
-    private final Set<String> allLinks = new HashSet<String>();
-    private final Set<String> innerLinks = new HashSet<String>();
-    private final Set<String> outerLinks = new HashSet<String>();
+    private Set<String> allLinks;
+    private Set<String> innerLinks;
+    private Set<String> outerLinks;
 
-    private final Document document;
+    private Document document;
     private URL url;
 
-    public Parser(Document document, String url) {
+    public Page parse(Document document, String url) {
         this.document = document;
+        this.allLinks = new HashSet<String>();
+        this.innerLinks = new HashSet<String>();
+        this.outerLinks = new HashSet<String>();
         try {
             this.url = new URL(url);
         } catch (MalformedURLException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
+
+        parseLinks();
+
+        Page page = new Page();
+        page.setUrl(url);
+        page.setText(this.extractText());
+        page.getInnerLinks().addAll(innerLinks);
+        page.getOuterLinks().addAll(outerLinks);
+
+        return page;
     }
 
     /**
      * extract text from body tag
+     *
      * @return text in body tag
      */
     public String extractText() {
@@ -73,11 +88,11 @@ public class Parser {
         }
     }
 
-    public Set<String> getInnerLinks(){
+    public Set<String> getInnerLinks() {
         return innerLinks;
     }
 
-    public Set<String> getOuterLinks(){
+    public Set<String> getOuterLinks() {
         return outerLinks;
     }
 

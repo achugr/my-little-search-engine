@@ -14,8 +14,8 @@ import java.io.*;
 public class Downloader {
 
     public Downloader(){
-        if(!new File(Consts.SOURCE_PAGES_DIR).exists()){
-            new File(Consts.SOURCE_PAGES_DIR).mkdir();
+        if(!new File(Settings.SOURCE_PAGES_DIR).exists()){
+            new File(Settings.SOURCE_PAGES_DIR).mkdir();
         }
     }
 
