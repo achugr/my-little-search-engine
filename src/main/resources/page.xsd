@@ -1,0 +1,18 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="urn:beans.search_engine.dcn.infos.ru"
+            targetNamespace="urn:beans.search_engine.dcn.infos.ru"
+            elementFormDefault="qualified"
+        >
+
+    <xsd:element name="page">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="url" type="xsd:string"/>
+                <xsd:element name="innerLinks" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="outerLinks" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="text" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
