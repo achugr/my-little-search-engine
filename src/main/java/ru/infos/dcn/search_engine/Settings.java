@@ -7,11 +7,11 @@ package ru.infos.dcn.search_engine;
  * email: artemij.chugreev@gmail.com
  * skype: achugr
  */
-public final class Consts {
+public final class Settings {
 //    dir for html-pages
     public static final String SOURCE_PAGES_DIR = "source_pages";
 
-    private Consts(){
+    private Settings(){
         throw new AssertionError();
     }
 }
