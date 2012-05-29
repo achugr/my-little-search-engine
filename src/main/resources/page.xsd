@@ -1,6 +1,6 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns="urn:beans.search_engine.dcn.infos.ru"
-            targetNamespace="urn:beans.search_engine.dcn.infos.ru"
+            xmlns="urn:beans.search.engine.dcn.infos.ru"
+            targetNamespace="urn:beans.search.engine.dcn.infos.ru"
             elementFormDefault="qualified"
         >
 
